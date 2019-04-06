@@ -14,9 +14,10 @@ def sorteia_numero
     numero_secreto
 end
 
-def pede_numero(tentativa, limite)
+def pede_numero(chutes, tentativa, limite)
     puts "voce possui #{tentativa} de #{limite}"
-    puts "entre com seu numero"
+    puts "Chutes até agora" + chutes.to_s
+    puts "\nentre com seu numero"
     chute = gets
     puts "Será que acertou? voce digitou #{chute}"
     chute.to_i
@@ -42,7 +43,13 @@ da_boas_vindas
 numero_secreto = sorteia_numero
 
 limite = 5
+chutes = []
+totalChutes = 0
+
 for tentativa in 1..limite
-    chute = pede_numero(tentativa, limite)
+    chute = pede_numero(chutes, tentativa, limite)
+    chutes[totalChutes] = chute
+    totalChutes+=1
+
     break if verifica_numero(chute, numero_secreto)
 end
