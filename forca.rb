@@ -6,8 +6,7 @@ def sortea_palavra(nome)
     texto = File.read("dicionario.txt")
     todas_palavras = texto.split "\n"
     numero_escolhido = rand(todas_palavras.size)
-
-    palavra_secreta = todas_palavras[numero_escolhido]
+    palavra_secreta = todas_palavras[numero_escolhido].downcase
     avisa_palavra_escolhida palavra_secreta
 end
 
