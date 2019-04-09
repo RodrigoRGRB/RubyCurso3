@@ -3,9 +3,12 @@ require_relative "ui"
 
 def sortea_palavra(nome)
     avisa_busca_palavra nome
-    palavra_secreta = "pokemon"
-    avisa_palavra_escolhida palavra_secreta.size
-    palavra_secreta
+    texto = File.read("dicionario.txt")
+    todas_palavras = texto.split "\n"
+    numero_escolhido = rand(todas_palavras.size)
+
+    palavra_secreta = todas_palavras[numero_escolhido]
+    avisa_palavra_escolhida palavra_secreta
 end
 
 def palavra_mascarada chutes, palavra_secreta
