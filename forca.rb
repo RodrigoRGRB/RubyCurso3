@@ -37,11 +37,27 @@ def joga(nome)
     while erros < 5
         chute = pede_um_chute(chutes, erros)
         chutes << chute
+
+        chutou_letra = chute.size == 1
+        if chutou_letra
+        else
+            acertou = chute == palavra_secreta
+            if acertou
+                puts "Parabens acertou!!!"
+                ponto_ate_agora += 100
+                break
+            else
+                erros += 1
+                ponto_ate_agora -= 30
+            end
+        end
+
+
     end
     puts "Voce ganhou #{ponto_ate_agora} pontos."
 end
+
 nome = de_boas_vindas
-palavra_secreta = sortea_palavra(nome)
 
 loop do 
     joga(nome)
