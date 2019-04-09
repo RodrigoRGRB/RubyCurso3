@@ -5,4 +5,4 @@ ruby
 foda
 lol
 Poliedro
-Quero Educação
+Quero Educacao

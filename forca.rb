@@ -10,6 +10,10 @@ def sortea_palavra(nome)
     avisa_palavra_escolhida palavra_secreta
 end
 
+def salvar_rank nome, pontos_totais
+    conteudo = "#{nome}\n#{pontos_totais}"
+    File.write "rank.txt", conteudo
+end
 def palavra_mascarada chutes, palavra_secreta
     mascara = ""
     for letra in palavra_secreta.chars
@@ -55,6 +59,7 @@ def joga(nome)
             if total_encontrado == 0
                 avisa_letra_nao_encontrada
                 erros += 1
+                ponto_ate_agora -= 5
             else
                 avisa_letra_encontrada total_encontrado
             end
@@ -76,14 +81,16 @@ def joga(nome)
     end
    
     avisa_pontos ponto_ate_agora
-
+    ponto_ate_agora
 end
 
 def jogo_da_forca
     nome = de_boas_vindas
-
+    pontos_totais = 0
     loop do 
-        joga(nome)
+        pontos_totais += joga(nome)
+        avisa_pontos_totais pontos_totais
+        salvar_rank nome, pontos_totais
         if nao_quer_jogar?
             break
         end

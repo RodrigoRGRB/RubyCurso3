@@ -1,3 +1,7 @@
+def avisa_pontos_totais pontos_totais
+    puts "Voce ganhou #{pontos_totais} pontos"
+end
+
 def avisa_busca_palavra nome
     puts "#{nome} estamos buscando uma palavra bem dificil pra voce"
 end
