@@ -50,11 +50,13 @@ def joga(nome)
 
 end
 
-nome = de_boas_vindas
+def jogo_da_forca
+    nome = de_boas_vindas
 
-loop do 
-    joga(nome)
-    if nao_quer_jogar?
-        break
+    loop do 
+        joga(nome)
+        if nao_quer_jogar?
+            break
+        end
     end
 end
