@@ -1,5 +1,13 @@
 require_relative "ui"
 
+
+def sortea_palavra(nome)
+    avisa_busca_palavra nome
+    palavra_secreta = "pokemon"
+    avisa_palavra_escolhida palavra_secreta.size
+    palavra_secreta
+end
+
 def palavra_mascarada chutes, palavra_secreta
     mascara = ""
     for letra in palavra_secreta.chars

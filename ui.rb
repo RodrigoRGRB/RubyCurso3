@@ -1,3 +1,11 @@
+def avisa_busca_palavra nome
+    puts "#{nome} estamos buscando uma palavra bem dificil pra voce"
+end
+
+def avisa_palavra_escolhida palavra_secreta
+    puts "Pronto já achamos a palavra secreta que possui #{palavra_secreta}"
+end
+
 def avisa_chute chute
     puts "Voce já chutou #{chute}"
 end
@@ -26,13 +34,6 @@ def de_boas_vindas
     puts "Seja bem vindo ao incrivel jogo da forca"
     puts "Para começar diga seu nome:"
     nome = gets.strip
-end
-
-def sortea_palavra(nome)
-    puts "#{nome} estamos buscando uma palavra bem dificil pra voce"
-    palavra_secreta = "pokemon"
-    puts "Pronto já achamos a palavra secreta que possui #{palavra_secreta.size}"
-    palavra_secreta
 end
 
 def nao_quer_jogar?
