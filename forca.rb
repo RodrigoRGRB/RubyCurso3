@@ -8,23 +8,44 @@ def sortea_palavra(nome)
     puts "#{nome} estamos buscando uma palavra bem dificil pra voce"
     palavra_secreta = "pokemon"
     puts "Pronto já achamos a palavra secreta que possui #{palavra_secreta.size}"
+    palavra_secreta
 end
 
-def pede_uma_letra(chutes,tentativa, limite)
-    puts "\n\n\n\nTentativa #{tentativa} de #{limite}"
-    puts "Chutes até agora\n #{chutes}"
-    puts "Digite uma letra"
+def nao_quer_jogar?
+    puts "Deseja jogar novamente (S/N)"
+    quero_jogar = gets.strip
+    nao_quero_jogar = quero_jogar.upcase == "N"
+end
+
+def pede_um_chute(chutes, erros)
+    puts "\n\n\n\n"
+    puts "Erros até agora: #{erros}"
+    puts "Chutes até agora: #{chutes}"
+    puts "Entre com uma letra ou palavra"
     chute = gets.strip
-    chutes << chute
+    puts "será que acertou? voce chutou #{chute}"
+    chute
 end
 
-#defini variaveis
-tentativa = 0
-limite = 5
-chutes=[]
+def joga(nome)
+    palavra_secreta = sortea_palavra(nome)
 
+    erros = 0
+    chutes = []
+    ponto_ate_agora = 0
+
+    while erros < 5
+        chute = pede_um_chute(chutes, erros)
+        chutes << chute
+    end
+    puts "Voce ganhou #{ponto_ate_agora} pontos."
+end
 nome = de_boas_vindas
-sortea_palavra(nome)
-chutes = pede_uma_letra tentativa, limite, chutes
+palavra_secreta = sortea_palavra(nome)
 
-pede_uma_letra
+loop do 
+    joga(nome)
+    if nao_quer_jogar?
+        break
+    end
+end
