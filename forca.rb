@@ -1,31 +1,4 @@
-def de_boas_vindas
-    puts "Seja bem vindo ao incrivel jogo da forca"
-    puts "Para começar diga seu nome:"
-    nome = gets.strip
-end
-
-def sortea_palavra(nome)
-    puts "#{nome} estamos buscando uma palavra bem dificil pra voce"
-    palavra_secreta = "pokemon"
-    puts "Pronto já achamos a palavra secreta que possui #{palavra_secreta.size}"
-    palavra_secreta
-end
-
-def nao_quer_jogar?
-    puts "Deseja jogar novamente (S/N)"
-    quero_jogar = gets.strip
-    nao_quero_jogar = quero_jogar.upcase == "N"
-end
-
-def pede_um_chute(chutes, erros)
-    puts "\n\n\n\n"
-    puts "Erros até agora: #{erros}"
-    puts "Chutes até agora: #{chutes}"
-    puts "Entre com uma letra ou palavra"
-    chute = gets.strip
-    puts "será que acertou? voce chutou #{chute}"
-    chute
-end
+require_relative "ui"
 
 def joga(nome)
     palavra_secreta = sortea_palavra(nome)
@@ -38,7 +11,7 @@ def joga(nome)
         chute = pede_um_chute(chutes, erros)
         
         if chutes.include? chute
-            puts "Voce já chutou está letra por favor tente outra"
+            avisa_chute chute
             next
         end 
 
@@ -51,19 +24,20 @@ def joga(nome)
             total_encontrado = palavra_secreta.count letra_procurada
 
             if total_encontrado == 0
-                puts "Errou!"
+                avisa_letra_nao_encontrada
                 erros += 1
             else
-                puts "Letra encontrada #{total_encontrado} vezes"
+                avisa_letra_encontrada total_encontrado
             end
 
         else
             acertou = chute == palavra_secreta
             if acertou
-                puts "Parabens acertou!!!"
+                acertou_palavra
                 ponto_ate_agora += 100
                 break
             else
+                errou_palavra
                 erros += 1
                 ponto_ate_agora -= 30
             end
@@ -71,7 +45,9 @@ def joga(nome)
 
 
     end
-    puts "Voce ganhou #{ponto_ate_agora} pontos."
+   
+    avisa_pontos ponto_ate_agora
+
 end
 
 nome = de_boas_vindas
