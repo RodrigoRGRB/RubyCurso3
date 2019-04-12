@@ -14,6 +14,7 @@ def encontra_jogador(mapa)
             heroi_esta_aqui = mapa[linha][coluna] == caractere_do_heroi
             if heroi_esta_aqui
                 # Achei o Heroi
+                puts achei
             end
         end
     end
