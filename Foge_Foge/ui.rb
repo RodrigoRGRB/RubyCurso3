@@ -8,11 +8,10 @@ end
 
 def encontra_jogador(mapa)
     caractere_do_heroi = "H"
-    for linha = 0..(mapa.size-1)
-        linha_atual = mapa[linha]
+    mapa.each_with_index do |linha_atual, index|
         coluna_do_heroi = linha_atual.index caractere_do_heroi
         if coluna_do_heroi
-
+        #teste    
         end
     end
     # nao achei o Heroi
