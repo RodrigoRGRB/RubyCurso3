@@ -41,7 +41,8 @@ def posicao_valida?(mapa, posicao)
     if estourou_linhas || estourou_colunas
         return false
     end
-    if mapa[posicao[0]][posicao[1]] == "X"
+    posicao_atual = mapa[posicao[0]][posicao[1]]
+    if posicao_atual == "X" || posicao_atual == "F"
         return false
     end
     true

@@ -5,6 +5,6 @@ X X X
 X   X
   X
  XXX
-  F
+F F
 X F X
 XXXXX
