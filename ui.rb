@@ -1,3 +1,7 @@
+def avisa_campeao_atual(dados)
+    puts "Nosso campeao atual é #{dados[0]} com #{dados[1]} pontos"
+end
+
 def avisa_pontos_totais pontos_totais
     puts "Voce ganhou #{pontos_totais} pontos"
 end

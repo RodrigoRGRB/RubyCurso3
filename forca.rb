@@ -1,5 +1,5 @@
 require_relative "ui"
-
+require_relative "rank"
 
 def sortea_palavra(nome)
     avisa_busca_palavra nome
@@ -10,10 +10,6 @@ def sortea_palavra(nome)
     avisa_palavra_escolhida palavra_secreta
 end
 
-def salvar_rank nome, pontos_totais
-    conteudo = "#{nome}\n#{pontos_totais}"
-    File.write "rank.txt", conteudo
-end
 def palavra_mascarada chutes, palavra_secreta
     mascara = ""
     for letra in palavra_secreta.chars
@@ -87,10 +83,17 @@ end
 def jogo_da_forca
     nome = de_boas_vindas
     pontos_totais = 0
+
+    avisa_campeao_atual(le_rank)
+
     loop do 
         pontos_totais += joga(nome)
         avisa_pontos_totais pontos_totais
-        salvar_rank nome, pontos_totais
+        
+        if le_rank[1].to_i < pontos_totais
+            salvar_rank nome, pontos_totais
+        end
+
         if nao_quer_jogar?
             break
         end
