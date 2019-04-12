@@ -7,12 +7,14 @@ def da_boas_vindas
 end
 
 def encontra_jogador(mapa)
+    caractere_do_heroi = "H"
     for linha = 0..(mapa.size-1)
-        if mapa[linha].include? "H"
-            for coluna = 0..(mapa[linha].size-1)
-                if mapa[linha][coluna] == "H"
-                    # Achei o Heroi
-                end
+        linha_atual = mapa[linha]
+        for coluna = 0..(linha_atual.size-1)
+            heroi_esta_aqui = mapa[linha][coluna] == caractere_do_heroi
+            if heroi_esta_aqui
+                # Achei o Heroi
+            end
         end
     end
     # nao achei o Heroi
