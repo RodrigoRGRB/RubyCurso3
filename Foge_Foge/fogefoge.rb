@@ -6,7 +6,19 @@ def le_mapa(numero)
     mapa = texto.split "\n"
 end
 
+def encontra_jogador(mapa)
+    caractere_do_heroi = "H"
+    mapa.each_with_index do |linha_atual, linha|
+        coluna_do_heroi = linha_atual.index caractere_do_heroi
+        if coluna_do_heroi
+            return [linha, coluna_do_heroi]
+        end
+    end
+    # nao achei o Heroi
+end
+
 def calcula_nova_posicao(heroi, direcao)
+    heroi = heroi.dup
     case direcao
         when "W"
             heroi[0] -= 1
@@ -28,9 +40,14 @@ def joga(nome)
         direcao = pede_movimento
         heroi = encontra_jogador mapa
         
-        mapa[heroi[0]][heroi[1]] = " "
         nova_posicao = calcula_nova_posicao(heroi, direcao)
+        
+        if mapa[nova_posicao[0]][nova_posicao[1]] == "X"
+            next
+        end
+        mapa[heroi[0]][heroi[1]] = " "
         mapa[nova_posicao[0]][nova_posicao[1]] = "H"
+        
     end
 end
 

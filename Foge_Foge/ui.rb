@@ -6,17 +6,6 @@ def da_boas_vindas
     nome
 end
 
-def encontra_jogador(mapa)
-    caractere_do_heroi = "H"
-    mapa.each_with_index do |linha_atual, linha|
-        coluna_do_heroi = linha_atual.index caractere_do_heroi
-        if coluna_do_heroi
-            return [linha, coluna_do_heroi]
-        end
-    end
-    # nao achei o Heroi
-end
-
 def desenha(mapa)
     puts mapa
     mapa
