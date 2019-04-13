@@ -27,6 +27,7 @@ class Heroi
     def coloca_no(mapa)
         mapa[linha][coluna] = "H"
     end
+
 end
 
 
