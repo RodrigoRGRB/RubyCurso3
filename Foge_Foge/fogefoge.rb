@@ -74,7 +74,8 @@ def move_fantasma mapa, novo_mapa, linha, coluna
     if posicoes.empty?
         return
     end
-    posicao = posicoes[0]
+    aleatoria = rand(posicoes.size)
+    posicao = posicoes[aleatoria]
     mapa[linha][coluna] = " "
     novo_mapa[posicao[0]][posicao[1]] = "F"
 end
