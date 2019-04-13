@@ -6,6 +6,10 @@ def le_mapa(numero)
     mapa = texto.split "\n"
 end
 
+def copia_mapa
+    novo_mapa = mapa.join("\n").tr("F", " ").split("\n")
+end
+
 def encontra_jogador(mapa)
     caractere_do_heroi = "H"
     mapa.each_with_index do |linha_atual, linha|
