@@ -7,8 +7,24 @@
                 <td>Preço</td>
                 <td>Quantidade</td>
             </thead>
-            <% todos = Produto.order :nome %>
-            <% todos.each do |produto| %>
+            <% @produtos.each do |produto| %>
+            <tr>
+                <td><%= produto.nome %></td>
+                <td><%= produto.descricao %></td>
+                <td><%= produto.preco %></td>
+                <td><%= produto.quantidade %></td>
+            </tr>
+            <% end %>
+        </table>
+        <h3>Produto com desconto</h3>
+        <table>
+            <thead>
+                <td>Nome</td>
+                <td>Descrição</td>
+                <td>Preço</td>
+                <td>Quantidade</td>
+            </thead>
+            <% @produto_com_desconto.each do |produto| %>
             <tr>
                 <td><%= produto.nome %></td>
                 <td><%= produto.descricao %></td>
