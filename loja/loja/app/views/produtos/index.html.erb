@@ -7,7 +7,7 @@
                 <td>Preço</td>
                 <td>Quantidade</td>
             </thead>
-            <% todos = Produto.all %>
+            <% todos = Produto.order :nome %>
             <% todos.each do |produto| %>
             <tr>
                 <td><%= produto.nome %></td>
